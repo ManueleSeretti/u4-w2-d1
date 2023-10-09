@@ -12,25 +12,43 @@ public class Main {
 
 
         Scanner input = new Scanner(System.in);
+//
+//        ciclo:
+//        while (true) {
+//            System.out.println("cambia i numeri nell' Array spingi 0 per chiudere il programma:");
+//            System.out.println(Arrays.toString(array));
+//            for (int i = 0; i < array.length; i++) {
+//                try {
+//                    int c = i + 1;
+//                    System.out.println("inserisci un numero da mettere in posizione :" + c);
+//                    int scelta = Integer.parseInt(input.nextLine());
+//                    if (scelta == 0) break ciclo;
+//                    else array[i] = scelta;
+//                    if (c == 5) System.out.println(Arrays.toString(array));
+//                } catch (Exception x) {
+//                    System.err.println(x.getMessage());
+//                    i--;
+//                }
+//            }
+//        }
 
         ciclo:
         while (true) {
             System.out.println("cambia i numeri nell' Array spingi 0 per chiudere il programma:");
             System.out.println(Arrays.toString(array));
-            for (int i = 0; i < array.length; i++) {
-                try {
-                    int c = i + 1;
-                    System.out.println("inserisci un numero da mettere in posizione :" + c);
-                    int scelta = Integer.parseInt(input.nextLine());
-                    if (scelta == 0) break ciclo;
-                    else array[i] = scelta;
-                    if (c == 5) System.out.println(Arrays.toString(array));
-                } catch (Exception x) {
-                    System.err.println(x.getMessage());
-                    i--;
-                }
+            try {
+                System.out.println("inserisci la posizione che vuoi modificare :");
+                int i = Integer.parseInt(input.nextLine()) - 1;
+                if (i < 0 || i >= 5) throw new Exception("hai inserito un valore non disponibile nell'array!");
+                System.out.println("inserisci un numero da mettere in posizione :");
+                int scelta = Integer.parseInt(input.nextLine());
+                if (scelta == 0) break ciclo;
+                else array[i] = scelta;
+
+            } catch (Exception x) {
+                System.err.println(x.getMessage());
             }
         }
-        System.out.println(Arrays.toString(array));
     }
+
 }
